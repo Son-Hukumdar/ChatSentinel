@@ -2,7 +2,7 @@ name: ChatSentinel
 version: 0.4.0
 author: 2LS
 main: twolovers.chatsentinel.bungee.ChatSentinel
-description: Anti-Swear/Spam plugin for Spigot
+description: Anti-Swear/Spam plugin for BungeeCord
 commands:
   chatsentinel:
     description: "Main command for ChatSentinel plugin"

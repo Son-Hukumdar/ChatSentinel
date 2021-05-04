@@ -70,7 +70,7 @@ caps:
 
   # You need a mute plugin for ChatSentinel to mute players. (Recommended: LiteBans/AdvancedBans)
   # Set to [] to disable this feature completely.
-  punishments: []
+  punishments: [ ]
 
 # Checks if player is chatting too fast.
 cooldown:
@@ -109,7 +109,7 @@ flood:
 
   # You need a mute plugin for ChatSentinel to mute players. (Recommended: LiteBans/AdvancedBans)
   # Set to [] to disable this feature completely.
-  punishments: []
+  punishments: [ ]
 
 # Checks if the player is using syntax.
 # Example: testplugin:testcommand
@@ -118,7 +118,7 @@ syntax:
   enabled: true
 
   # Syntax commands that will not be checked.
-  # Set to {} to disable whitelist.
+  # Set to [] to disable whitelist.
   whitelist:
     - "/strikepractice:"
 
@@ -133,4 +133,25 @@ syntax:
 
   # You need a mute plugin for ChatSentinel to mute players. (Recommended: LiteBans/AdvancedBans)
   # Set to [] to disable this feature completely.
-  punishments: []
+  punishments: [ ]
+
+unicode:
+  # Do you want to enable this module?
+  enabled: true
+
+  # Syntax commands that will not be checked.
+  # Set to [] to disable whitelist.
+  whitelist: [ ]
+
+  warn:
+    # Amount of warns required to execute the commands.
+    # Set to -1 to disable this feature completely.
+    max: -1
+
+    # Sends a notification to players with chatsentinel.notify permission.
+    # Set to "" to disable this feature completely.
+    notification: "&c&lCS: &e%player% &ffailed &6Unicode &7(&c%message%&7)"
+
+  # You need a mute plugin for ChatSentinel to mute players. (Recommended: LiteBans/AdvancedBans)
+  # Set to [] to disable this feature completely.
+  punishments: [ ]

@@ -19,6 +19,7 @@ langs:
     cooldown_warn_message: "&c&lCS: &cWait %cooldown%s before sending another message!"
     flood_warn_message: "&c&lCS: &cYou cant send too large messages!"
     syntax_warn_message: "&c&lCS: &cSyntax is disabled in this server!"
+    unicode_warn_message: "&c&lCS: &cUnicode is disabled in this server!"
   es:
     cleared: "&aEl chat fue limpiado por &b%player%&a!"
     reload: "&c&lCS: &aPlugin recargado correctamente!"
@@ -33,3 +34,4 @@ langs:
     cooldown_warn_message: "&c&lCS: &cEspera %cooldown%s antes de enviar otro mensaje!"
     flood_warn_message: "&c&lCS: &cNo puedes enviar mensajes tan largos!"
     syntax_warn_message: "&c&lCS: &cLa sintaxis esta deshabilitada en este servidor!"
+    unicode_warn_message: "&c&lCS: &cLa unicode esta deshabilitada en este servidor!"
