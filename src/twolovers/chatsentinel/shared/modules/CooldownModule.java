@@ -48,7 +48,7 @@ public class CooldownModule implements Module {
   }
 
   @Override
-  final public String[] getCommands(final String[][] placeholders) {
+  final public String[] getPunishments(final String[][] placeholders) {
     return new String[0];
   }
 

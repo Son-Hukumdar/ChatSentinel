@@ -10,11 +10,11 @@ public class BlacklistModule implements Module {
   private boolean enabled, fakeMessage, hideWords;
   private int maxWarns;
   private String warnNotification;
-  private String[] commands;
+  private String[] punishments;
   private Pattern pattern;
 
   final public void loadData(final boolean enabled, final boolean fakeMessage, final boolean hideWords,
-                             final int maxWarns, final String warnNotification, final String[] commands, final String[] patterns) {
+                             final int maxWarns, final String warnNotification, final String[] punishments, final String[] patterns) {
     String patternString = "";
 
     for (final String string : patterns) {
@@ -26,7 +26,7 @@ public class BlacklistModule implements Module {
     this.hideWords = hideWords;
     this.maxWarns = maxWarns;
     this.warnNotification = warnNotification;
-    this.commands = commands;
+    this.punishments = punishments;
     this.pattern = Pattern.compile("(?i)(" + patternString + "(?!x)x)");
   }
 
@@ -55,15 +55,15 @@ public class BlacklistModule implements Module {
   }
 
   @Override
-  final public String[] getCommands(final String[][] placeholders) {
-    if (this.commands.length > 0) {
-      final String[] commands = this.commands.clone();
+  final public String[] getPunishments(final String[][] placeholders) {
+    if (this.punishments.length > 0) {
+      final String[] punishments = this.punishments.clone();
 
-      for (int i = 0; i < commands.length; i++) {
-        commands[i] = PlaceholderUtil.replacePlaceholders(commands[i], placeholders);
+      for (int i = 0; i < punishments.length; i++) {
+        punishments[i] = PlaceholderUtil.replacePlaceholders(punishments[i], placeholders);
       }
 
-      return commands;
+      return punishments;
     }
     else
       return new String[0];

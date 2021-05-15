@@ -7,7 +7,7 @@ public interface Module {
 
   public int getMaxWarns();
 
-  public String[] getCommands(final String[][] placeholders);
+  public String[] getPunishments(final String[][] placeholders);
 
   public String getName();
 

@@ -24,17 +24,19 @@ public class ModuleManager {
   private final BlacklistModule blacklistModule;
   private final SyntaxModule syntaxModule;
   private final UnicodeModule unicodeModule;
+  private final DisabledCommandsModule disabledCommandsModule;
 
   public ModuleManager(final ProxyServer server, final ConfigUtil configUtil) {
     this.server = server;
     this.configUtil = configUtil;
-    this.modules = new Module[6];
+    this.modules = new Module[7];
     this.modules[0] = this.capsModule = new CapsModule();
     this.modules[1] = this.cooldownModule = new CooldownModule();
     this.modules[2] = this.floodModule = new FloodModule();
     this.modules[3] = this.blacklistModule = new BlacklistModule();
     this.modules[4] = this.syntaxModule = new SyntaxModule();
     this.modules[5] = this.unicodeModule = new UnicodeModule();
+    this.modules[6] = this.disabledCommandsModule = new DisabledCommandsModule();
     this.messagesModule = new MessagesModule();
     this.whitelistModule = new WhitelistModule();
 
@@ -59,6 +61,10 @@ public class ModuleManager {
 
   public final UnicodeModule getUnicodeModule() {
     return unicodeModule;
+  }
+
+  public final DisabledCommandsModule getDisabledCommandsModule() {
+    return disabledCommandsModule;
   }
 
   public final MessagesModule getMessagesModule() {
@@ -126,5 +132,9 @@ public class ModuleManager {
         configYml.getString("unicode.warn.notification"),
         configYml.getStringList("unicode.whitelist"),
         configYml.getStringList("unicode.punishments").toArray(new String[0]));
+    this.disabledCommandsModule.loadData(configYml.getBoolean("disabledcommands.enabled"), configYml.getInt("disabledcommands.warn.max"),
+        configYml.getString("disabledcommands.warn.notification"),
+        configYml.getStringList("disabledcommands.commands").toArray(new String[0]),
+        configYml.getStringList("disabledcommands.punishments").toArray(new String[0]));
   }
 }

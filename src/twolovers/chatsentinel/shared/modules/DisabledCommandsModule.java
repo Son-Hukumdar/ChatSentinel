@@ -4,50 +4,39 @@ import twolovers.chatsentinel.shared.chat.ChatPlayer;
 import twolovers.chatsentinel.shared.interfaces.Module;
 import twolovers.chatsentinel.shared.utils.PlaceholderUtil;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-public class FloodModule implements Module {
-  private boolean enabled, replace;
+public class DisabledCommandsModule implements Module {
+  private boolean enabled;
   private int maxWarns;
   private String warnNotification;
-  private String[] punishments;
-  private Pattern pattern;
+  private String[] commands, punishments;
 
-  final public void loadData(final boolean enabled, final boolean replace, final int maxWarns, final String pattern,
-                             final String warnNotification, final String[] punishments) {
+  final public void loadData(final boolean enabled, final int maxWarns, final String warnNotification,
+                             final String[] commands, final String[] punishments) {
     this.enabled = enabled;
-    this.replace = replace;
     this.maxWarns = maxWarns;
     this.warnNotification = warnNotification;
+    this.commands = commands;
     this.punishments = punishments;
-    this.pattern = Pattern.compile(pattern);
   }
 
-  public boolean isReplace() {
-    return this.replace;
-  }
+  final public boolean isDisabled(String message) {
+    if (commands.length > 0 && message.startsWith("/"))
+      message = message.toLowerCase().split(" ")[0];
+      for (final String command : commands)
+        if (message.equals(command))
+          return true;
 
-  final public String replace(String string) {
-    final Matcher matcher = pattern.matcher(string);
-
-    if (matcher.find()) {
-      final String group = matcher.group();
-
-      string.replace(group.substring(0, group.length()), "");
-    }
-
-    return string;
+    return false;
   }
 
   @Override
   public boolean meetsCondition(final ChatPlayer chatPlayer, final String message) {
-    return this.enabled && pattern.matcher(message).find();
+    return (enabled && isDisabled(message));
   }
 
   @Override
   final public String getName() {
-    return "Flood";
+    return "DisabledCommands";
   }
 
   @Override
@@ -78,4 +67,5 @@ public class FloodModule implements Module {
   public int getMaxWarns() {
     return maxWarns;
   }
+
 }

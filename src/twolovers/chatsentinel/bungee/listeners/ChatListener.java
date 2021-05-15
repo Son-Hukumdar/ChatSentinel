@@ -67,7 +67,7 @@ public class ChatListener implements Listener {
 
           for (final Module module : moduleManager.getModules()) {
             if (!player.hasPermission("chatsentinel.bypass." + module.getName())
-                && (!isCommand || module instanceof CooldownModule || module instanceof SyntaxModule
+                && (!isCommand || module instanceof CooldownModule || module instanceof SyntaxModule || module instanceof DisabledCommandsModule
                 || whitelistModule.startsWithCommand(originalMessage))
                 && module.meetsCondition(chatPlayer, (module.getName().equals("Unicode") ? originalMessage : modifiedMessage))) {
               final int warns = chatPlayer.addWarn(module), maxWarns = module.getMaxWarns();
@@ -143,8 +143,8 @@ public class ChatListener implements Listener {
               if (warns >= maxWarns && maxWarns > 0) {
                 final PluginManager pluginManager = server.getPluginManager();
 
-                for (final String command : module.getCommands(placeholders)) {
-                  pluginManager.dispatchCommand(console, command);
+                for (final String punishment : module.getPunishments(placeholders)) {
+                  pluginManager.dispatchCommand(console, punishment);
                 }
 
                 chatPlayer.clearWarns();

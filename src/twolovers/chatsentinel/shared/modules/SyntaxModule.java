@@ -8,15 +8,15 @@ public class SyntaxModule implements Module {
   private boolean enabled;
   private int maxWarns;
   private String warnNotification;
-  private String[] whitelist, commands;
+  private String[] whitelist, punishments;
 
   final public void loadData(final boolean enabled, final int maxWarns, final String warnNotification,
-                             final String[] whitelist, final String[] commands) {
+                             final String[] whitelist, final String[] punishments) {
     this.enabled = enabled;
     this.maxWarns = maxWarns;
     this.warnNotification = warnNotification;
     this.whitelist = whitelist;
-    this.commands = commands;
+    this.punishments = punishments;
   }
 
   final public boolean isWhitelisted(final String message) {
@@ -39,15 +39,15 @@ public class SyntaxModule implements Module {
   }
 
   @Override
-  final public String[] getCommands(final String[][] placeholders) {
-    if (this.commands.length > 0) {
-      final String[] commands = this.commands.clone();
+  final public String[] getPunishments(final String[][] placeholders) {
+    if (this.punishments.length > 0) {
+      final String[] punishments = this.punishments.clone();
 
-      for (int i = 0; i < commands.length; i++) {
-        commands[i] = PlaceholderUtil.replacePlaceholders(commands[i], placeholders);
+      for (int i = 0; i < punishments.length; i++) {
+        punishments[i] = PlaceholderUtil.replacePlaceholders(punishments[i], placeholders);
       }
 
-      return commands;
+      return punishments;
     }
     else
       return new String[0];
