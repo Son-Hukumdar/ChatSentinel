@@ -52,8 +52,7 @@ public class ConfigUtil {
           Files.copy(inputStream, configFile.toPath());
           plugin.getLogger().log(Level.INFO, ("[%pluginname%] File " + configFile + " has been created!")
               .replace("%pluginname%", plugin.getDescription().getName()));
-        }
-        else
+        } else
           configFile.createNewFile();
       }
     } catch (final IOException e) {

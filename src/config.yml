@@ -70,7 +70,7 @@ caps:
 
   # You need a mute plugin for ChatSentinel to mute players. (Recommended: LiteBans/AdvancedBans)
   # Set to [] to disable this feature completely.
-  punishments: []
+  punishments: [ ]
 
 # Checks if player is chatting too fast.
 cooldown:
@@ -109,7 +109,7 @@ flood:
 
   # You need a mute plugin for ChatSentinel to mute players. (Recommended: LiteBans/AdvancedBans)
   # Set to [] to disable this feature completely.
-  punishments: []
+  punishments: [ ]
 
 # Checks if the player is using syntax.
 # Example: testplugin:testcommand
@@ -133,7 +133,7 @@ syntax:
 
   # You need a mute plugin for ChatSentinel to mute players. (Recommended: LiteBans/AdvancedBans)
   # Set to [] to disable this feature completely.
-  punishments: []
+  punishments: [ ]
 
 unicode:
   # Do you want to enable this module?
@@ -141,7 +141,7 @@ unicode:
 
   # Syntax commands that will not be checked.
   # Set to [] to disable whitelist.
-  whitelist: []
+  whitelist: [ ]
 
   warn:
     # Amount of warns required to execute the commands.
@@ -154,7 +154,7 @@ unicode:
 
   # You need a mute plugin for ChatSentinel to mute players. (Recommended: LiteBans/AdvancedBans)
   # Set to [] to disable this feature completely.
-  punishments: []
+  punishments: [ ]
 
 disabledcommands:
   # Do you want to enable this module?
@@ -184,4 +184,4 @@ disabledcommands:
 
   # You need a mute plugin for ChatSentinel to mute players. (Recommended: LiteBans/AdvancedBans)
   # Set to [] to disable this feature completely.
-  punishments: []
+  punishments: [ ]

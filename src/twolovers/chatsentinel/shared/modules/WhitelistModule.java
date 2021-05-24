@@ -39,8 +39,7 @@ public class WhitelistModule {
       }
 
       return "(?i)((?!x)x" + regex + ")";
-    }
-    else {
+    } else {
       return "(?!x)x";
     }
   }

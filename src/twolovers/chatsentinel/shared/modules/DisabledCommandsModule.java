@@ -22,9 +22,9 @@ public class DisabledCommandsModule implements Module {
   final public boolean isDisabled(String message) {
     if (commands.length > 0 && message.startsWith("/"))
       message = message.toLowerCase().split(" ")[0];
-      for (final String command : commands)
-        if (message.equals(command))
-          return true;
+    for (final String command : commands)
+      if (message.equals(command))
+        return true;
 
     return false;
   }
@@ -49,8 +49,7 @@ public class DisabledCommandsModule implements Module {
       }
 
       return punishments;
-    }
-    else
+    } else
       return new String[0];
   }
 
@@ -58,8 +57,7 @@ public class DisabledCommandsModule implements Module {
   final public String getWarnNotification(final String[][] placeholders) {
     if (!this.warnNotification.isEmpty()) {
       return PlaceholderUtil.replacePlaceholders(this.warnNotification, placeholders);
-    }
-    else
+    } else
       return null;
   }
 

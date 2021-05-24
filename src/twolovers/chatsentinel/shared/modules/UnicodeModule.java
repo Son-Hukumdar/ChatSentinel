@@ -46,8 +46,7 @@ public class UnicodeModule implements Module {
       }
 
       return punishments;
-    }
-    else
+    } else
       return new String[0];
   }
 
@@ -55,8 +54,7 @@ public class UnicodeModule implements Module {
   final public String getWarnNotification(final String[][] placeholders) {
     if (!this.warnNotification.isEmpty()) {
       return PlaceholderUtil.replacePlaceholders(this.warnNotification, placeholders);
-    }
-    else
+    } else
       return null;
   }
 

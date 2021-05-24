@@ -56,8 +56,7 @@ public class ChatListener implements Listener {
             modifiedMessage = whitelistPattern.matcher(
                 namesPattern.matcher(whitelistModule.formatMessage(originalMessage)).replaceAll(""))
                 .replaceAll("").trim();
-          }
-          else {
+          } else {
             modifiedMessage = whitelistModule.formatMessage(originalMessage);
           }
 
@@ -82,25 +81,21 @@ public class ChatListener implements Listener {
                 if (blacklistModule.isHideWords()) {
                   event.setMessage(
                       blacklistModule.getPattern().matcher(modifiedMessage).replaceAll("***"));
-                }
-                else
+                } else
                   event.setCancelled(true);
-              }
-              else if (module instanceof CapsModule) {
+              } else if (module instanceof CapsModule) {
                 final CapsModule capsModule = (CapsModule) module;
 
                 if (capsModule.isReplace())
                   event.setMessage(originalMessage.toLowerCase());
                 else
                   event.setCancelled(true);
-              }
-              else if (module instanceof CooldownModule) {
+              } else if (module instanceof CooldownModule) {
                 placeholders[1][4] = String.valueOf(
                     ((CooldownModule) module).getRemainingTime(chatPlayer, originalMessage));
 
                 event.setCancelled(true);
-              }
-              else if (module instanceof FloodModule) {
+              } else if (module instanceof FloodModule) {
                 final FloodModule floodModule = (FloodModule) module;
 
                 if (floodModule.isReplace()) {
@@ -108,16 +103,13 @@ public class ChatListener implements Listener {
 
                   if (!replacedString.isEmpty()) {
                     event.setMessage(replacedString);
-                  }
-                  else {
+                  } else {
                     event.setCancelled(true);
                   }
-                }
-                else {
+                } else {
                   event.setCancelled(true);
                 }
-              }
-              else {
+              } else {
                 event.setCancelled(true);
               }
 

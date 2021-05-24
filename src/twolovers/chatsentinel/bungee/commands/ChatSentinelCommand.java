@@ -25,21 +25,18 @@ public class ChatSentinelCommand extends Command {
 
     if (sender instanceof ProxiedPlayer) {
       lang = VersionUtil.getLocale((ProxiedPlayer) sender);
-    }
-    else {
+    } else {
       lang = "en";
     }
 
     if (sender.hasPermission("chatsentinel.admin")) {
       if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
         sender.sendMessage(messagesModule.getHelp(lang));
-      }
-      else if (args[0].equalsIgnoreCase("reload")) {
+      } else if (args[0].equalsIgnoreCase("reload")) {
         moduleManager.reloadData();
 
         sender.sendMessage(messagesModule.getReload(lang));
-      }
-      else if (args[0].equalsIgnoreCase("clear")) {
+      } else if (args[0].equalsIgnoreCase("clear")) {
         final StringBuilder emptyLines = new StringBuilder();
         final String newLine = "\n ";
         final String[][] placeholders = {{"%player%"}, {sender.getName()}};
@@ -53,12 +50,10 @@ public class ChatSentinelCommand extends Command {
         for (final ProxiedPlayer player : server.getPlayers()) {
           player.sendMessage(emptyLines.toString());
         }
-      }
-      else {
+      } else {
         sender.sendMessage(messagesModule.getUnknownCommand(lang));
       }
-    }
-    else {
+    } else {
       sender.sendMessage(messagesModule.getNoPermission(lang));
     }
   }
