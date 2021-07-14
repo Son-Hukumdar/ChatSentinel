@@ -9,15 +9,17 @@ public class CapsModule implements Module {
   private int max, maxWarns;
   private String warnNotification;
   private String[] punishments;
+  private boolean bypassable = false;
 
   final public void loadData(final boolean enabled, final boolean replace, final int max, final int maxWarns,
-                             final String warnNotification, final String[] punishments) {
+                             final String warnNotification, final String[] punishments, final boolean bypassable) {
     this.enabled = enabled;
     this.replace = replace;
     this.max = max;
     this.maxWarns = maxWarns;
     this.warnNotification = warnNotification;
     this.punishments = punishments;
+    this.bypassable = bypassable;
   }
 
   final public boolean isReplace() {
@@ -39,6 +41,11 @@ public class CapsModule implements Module {
   @Override
   final public String getName() {
     return "Caps";
+  }
+
+  @Override
+  final public boolean isBypassable() {
+    return this.bypassable;
   }
 
   @Override

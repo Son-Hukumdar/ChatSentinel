@@ -28,6 +28,8 @@ whitelist:
 blacklist:
   enabled: true
 
+  bypassable: true
+
   # Show a fake message to the player to make him think his message was sent.
   # This doesnt work if the plugin is on BungeeCord.
   fake_message: false
@@ -53,6 +55,8 @@ blacklist:
 caps:
   enabled: true
 
+  bypassable: true
+
   # If this is true it will replace the caps with low-case letters.
   replace: true
 
@@ -76,6 +80,8 @@ caps:
 cooldown:
   enabled: true
 
+  bypassable: true
+
   # Time in milliseconds.
   time:
     # Messages that are repeated.
@@ -90,6 +96,8 @@ cooldown:
 # Checks if player is using too many repeated characters.
 flood:
   enabled: true
+
+  bypassable: true
 
   # If this is true it will replace the flood instead of cancelling it.
   # Example: Heloooooo would be converted to just Helloo
@@ -117,6 +125,8 @@ syntax:
   # Do you want to enable this module?
   enabled: true
 
+  bypassable: true
+
   # Syntax commands that will not be checked.
   # Set to [] to disable whitelist.
   whitelist:
@@ -139,6 +149,8 @@ unicode:
   # Do you want to enable this module?
   enabled: true
 
+  bypassable: true
+
   # Syntax commands that will not be checked.
   # Set to [] to disable whitelist.
   whitelist: [ ]
@@ -159,6 +171,8 @@ unicode:
 disabledcommands:
   # Do you want to enable this module?
   enabled: true
+
+  bypassable: true
 
   # Disabled Commands
   commands:

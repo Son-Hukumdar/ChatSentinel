@@ -6,13 +6,15 @@ import twolovers.chatsentinel.shared.interfaces.Module;
 public class CooldownModule implements Module {
   private boolean enabled;
   private int repeatTime, normalTime, commandTime;
+  private boolean bypassable = false;
 
   final public void loadData(final boolean enabled, final int repeatTime, final int normalTime,
-                             final int commandTime) {
+                             final int commandTime, final boolean bypassable) {
     this.enabled = enabled;
     this.repeatTime = repeatTime;
     this.normalTime = normalTime;
     this.commandTime = commandTime;
+    this.bypassable = bypassable;
   }
 
   final public float getRemainingTime(final ChatPlayer chatPlayer, final String message) {
@@ -43,6 +45,11 @@ public class CooldownModule implements Module {
   @Override
   final public String getName() {
     return "Cooldown";
+  }
+
+  @Override
+  final public boolean isBypassable() {
+    return this.bypassable;
   }
 
   @Override

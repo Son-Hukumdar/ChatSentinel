@@ -9,14 +9,16 @@ public class DisabledCommandsModule implements Module {
   private int maxWarns;
   private String warnNotification;
   private String[] commands, punishments;
+  private boolean bypassable = false;
 
   final public void loadData(final boolean enabled, final int maxWarns, final String warnNotification,
-                             final String[] commands, final String[] punishments) {
+                             final String[] commands, final String[] punishments, final boolean bypassable) {
     this.enabled = enabled;
     this.maxWarns = maxWarns;
     this.warnNotification = warnNotification;
     this.commands = commands;
     this.punishments = punishments;
+    this.bypassable = bypassable;
   }
 
   final public boolean isDisabled(String message) {
@@ -37,6 +39,11 @@ public class DisabledCommandsModule implements Module {
   @Override
   final public String getName() {
     return "DisabledCommands";
+  }
+
+  @Override
+  final public boolean isBypassable() {
+    return this.bypassable;
   }
 
   @Override

@@ -12,14 +12,16 @@ public class UnicodeModule implements Module {
   private String warnNotification;
   private List<String> whitelist;
   private String[] punishments;
+  private boolean bypassable = false;
 
   final public void loadData(final boolean enabled, final int maxWarns, final String warnNotification,
-                             final List<String> whitelist, final String[] punishments) {
+                             final List<String> whitelist, final String[] punishments, final boolean bypassable) {
     this.enabled = enabled;
     this.maxWarns = maxWarns;
     this.warnNotification = warnNotification;
     this.whitelist = whitelist;
     this.punishments = punishments;
+    this.bypassable = bypassable;
   }
 
   final public boolean isWhitelisted(final String message) {
@@ -34,6 +36,11 @@ public class UnicodeModule implements Module {
   @Override
   final public String getName() {
     return "Unicode";
+  }
+
+  @Override
+  final public boolean isBypassable() {
+    return this.bypassable;
   }
 
   @Override

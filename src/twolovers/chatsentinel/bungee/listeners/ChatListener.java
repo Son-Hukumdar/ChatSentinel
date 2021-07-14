@@ -65,7 +65,8 @@ public class ChatListener implements Listener {
           final String playerName = player.getName(), lang = VersionUtil.getLocale(player);
 
           for (final Module module : moduleManager.getModules()) {
-            if (!player.hasPermission("chatsentinel.bypass." + module.getName())
+            if (
+                (!player.hasPermission("chatsentinel.bypass." + module.getName()) || !module.isBypassable())
                 && (!isCommand || module instanceof CooldownModule || module instanceof SyntaxModule || module instanceof DisabledCommandsModule
                 || whitelistModule.startsWithCommand(originalMessage))
                 && module.meetsCondition(chatPlayer, (module.getName().equals("Unicode") ? originalMessage : modifiedMessage))) {

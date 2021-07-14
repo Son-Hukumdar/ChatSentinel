@@ -9,14 +9,16 @@ public class SyntaxModule implements Module {
   private int maxWarns;
   private String warnNotification;
   private String[] whitelist, punishments;
+  private boolean bypassable = false;
 
   final public void loadData(final boolean enabled, final int maxWarns, final String warnNotification,
-                             final String[] whitelist, final String[] punishments) {
+                             final String[] whitelist, final String[] punishments, final boolean bypassable) {
     this.enabled = enabled;
     this.maxWarns = maxWarns;
     this.warnNotification = warnNotification;
     this.whitelist = whitelist;
     this.punishments = punishments;
+    this.bypassable = bypassable;
   }
 
   final public boolean isWhitelisted(final String message) {
@@ -36,6 +38,11 @@ public class SyntaxModule implements Module {
   @Override
   final public String getName() {
     return "Syntax";
+  }
+
+  @Override
+  final public boolean isBypassable() {
+    return this.bypassable;
   }
 
   @Override

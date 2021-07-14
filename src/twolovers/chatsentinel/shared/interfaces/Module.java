@@ -11,5 +11,7 @@ public interface Module {
 
   public String getName();
 
+  public boolean isBypassable();
+
   public String getWarnNotification(final String[][] placeholders);
 }

@@ -12,9 +12,10 @@ public class BlacklistModule implements Module {
   private String warnNotification;
   private String[] punishments;
   private Pattern pattern;
+  private boolean bypassable = false;
 
   final public void loadData(final boolean enabled, final boolean fakeMessage, final boolean hideWords,
-                             final int maxWarns, final String warnNotification, final String[] punishments, final String[] patterns) {
+                             final int maxWarns, final String warnNotification, final String[] punishments, final String[] patterns, final boolean bypassable) {
     String patternString = "";
 
     for (final String string : patterns) {
@@ -28,6 +29,7 @@ public class BlacklistModule implements Module {
     this.warnNotification = warnNotification;
     this.punishments = punishments;
     this.pattern = Pattern.compile("(?i)(" + patternString + "(?!x)x)");
+    this.bypassable = bypassable;
   }
 
   final public boolean isFakeMessage() {
@@ -52,6 +54,11 @@ public class BlacklistModule implements Module {
   @Override
   public String getName() {
     return "Blacklist";
+  }
+
+  @Override
+  final public boolean isBypassable() {
+    return this.bypassable;
   }
 
   @Override

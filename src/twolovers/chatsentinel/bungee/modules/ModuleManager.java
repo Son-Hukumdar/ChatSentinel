@@ -108,13 +108,16 @@ public class ModuleManager {
     this.capsModule.loadData(configYml.getBoolean("caps.enabled"), configYml.getBoolean("caps.replace"),
         configYml.getInt("caps.max"), configYml.getInt("caps.warn.max"),
         configYml.getString("caps.warn.notification"),
-        configYml.getStringList("caps.punishments").toArray(new String[0]));
+        configYml.getStringList("caps.punishments").toArray(new String[0]),
+        configYml.getBoolean("caps.bypassable"));
     this.cooldownModule.loadData(configYml.getBoolean("cooldown.enabled"), configYml.getInt("cooldown.time.repeat"),
-        configYml.getInt("cooldown.time.normal"), configYml.getInt("cooldown.time.command"));
+        configYml.getInt("cooldown.time.normal"), configYml.getInt("cooldown.time.command"),
+        configYml.getBoolean("cooldown.bypassable"));
     this.floodModule.loadData(configYml.getBoolean("flood.enabled"), configYml.getBoolean("flood.replace"),
         configYml.getInt("flood.warn.max"), configYml.getString("flood.pattern"),
         configYml.getString("flood.warn.notification"),
-        configYml.getStringList("flood.punishments").toArray(new String[0]));
+        configYml.getStringList("flood.punishments").toArray(new String[0]),
+        configYml.getBoolean("flood.bypassable"));
     this.messagesModule.loadData(messagesYml.getString("default"), locales);
     this.whitelistModule.loadData(whitelistYml.getStringList("expressions"),
         configYml.getStringList("whitelist.commands"), configYml.getBoolean("whitelist.enabled"),
@@ -123,18 +126,22 @@ public class ModuleManager {
         configYml.getBoolean("blacklist.fake_message"), configYml.getBoolean("blacklist.hide_words"),
         configYml.getInt("blacklist.warn.max"), configYml.getString("blacklist.warn.notification"),
         configYml.getStringList("blacklist.punishments").toArray(new String[0]),
-        blacklistYml.getStringList("expressions").toArray(new String[0]));
+        blacklistYml.getStringList("expressions").toArray(new String[0]),
+        configYml.getBoolean("blacklist.bypassable"));
     this.syntaxModule.loadData(configYml.getBoolean("syntax.enabled"), configYml.getInt("syntax.warn.max"),
         configYml.getString("syntax.warn.notification"),
         configYml.getStringList("syntax.whitelist").toArray(new String[0]),
-        configYml.getStringList("syntax.punishments").toArray(new String[0]));
+        configYml.getStringList("syntax.punishments").toArray(new String[0]),
+        configYml.getBoolean("syntax.bypassable"));
     this.unicodeModule.loadData(configYml.getBoolean("unicode.enabled"), configYml.getInt("unicode.warn.max"),
         configYml.getString("unicode.warn.notification"),
         configYml.getStringList("unicode.whitelist"),
-        configYml.getStringList("unicode.punishments").toArray(new String[0]));
+        configYml.getStringList("unicode.punishments").toArray(new String[0]),
+        configYml.getBoolean("unicode.bypassable"));
     this.disabledCommandsModule.loadData(configYml.getBoolean("disabledcommands.enabled"), configYml.getInt("disabledcommands.warn.max"),
         configYml.getString("disabledcommands.warn.notification"),
         configYml.getStringList("disabledcommands.commands").toArray(new String[0]),
-        configYml.getStringList("disabledcommands.punishments").toArray(new String[0]));
+        configYml.getStringList("disabledcommands.punishments").toArray(new String[0]),
+        configYml.getBoolean("disabledcommands.bypassable"));
   }
 }

@@ -13,15 +13,17 @@ public class FloodModule implements Module {
   private String warnNotification;
   private String[] punishments;
   private Pattern pattern;
+  private boolean bypassable = false;
 
   final public void loadData(final boolean enabled, final boolean replace, final int maxWarns, final String pattern,
-                             final String warnNotification, final String[] punishments) {
+                             final String warnNotification, final String[] punishments, final boolean bypassable) {
     this.enabled = enabled;
     this.replace = replace;
     this.maxWarns = maxWarns;
     this.warnNotification = warnNotification;
     this.punishments = punishments;
     this.pattern = Pattern.compile(pattern);
+    this.bypassable = bypassable;
   }
 
   public boolean isReplace() {
@@ -48,6 +50,11 @@ public class FloodModule implements Module {
   @Override
   final public String getName() {
     return "Flood";
+  }
+
+  @Override
+  final public boolean isBypassable() {
+    return this.bypassable;
   }
 
   @Override
