@@ -30,7 +30,7 @@ public class UnicodeModule implements Module {
 
   @Override
   public boolean meetsCondition(final ChatPlayer chatPlayer, final String message) {
-    return (enabled && hasUnicode(message.toLowerCase()));
+    return (enabled && hasUnicode(message));
   }
 
   @Override
@@ -73,7 +73,7 @@ public class UnicodeModule implements Module {
   private boolean hasUnicode(final String message) {
     for (int i = 0; i < message.length(); i++) {
       int c = message.charAt(i);
-      if (c > 15000 && !isWhitelisted(String.valueOf(message.charAt(i))))
+      if (!(c >= 32 && c <= 126) && !isWhitelisted(String.valueOf(message.charAt(i))))
         return true;
     }
     return false;

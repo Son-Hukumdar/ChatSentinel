@@ -153,7 +153,19 @@ unicode:
 
   # Syntax commands that will not be checked.
   # Set to [] to disable whitelist.
-  whitelist: [ ]
+  whitelist:
+    - 'Ğ'
+    - 'Ü'
+    - 'Ş'
+    - 'İ'
+    - 'Ö'
+    - 'Ç'
+    - 'ğ'
+    - 'ü'
+    - 'ş'
+    - 'ı'
+    - 'ö'
+    - 'ç'
 
   warn:
     # Amount of warns required to execute the commands.
